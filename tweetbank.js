@@ -2,7 +2,11 @@ const _ = require('lodash'); // utilities library
 var data = [];
 
 function add(name, content) {
-  data.push({ name: name, content: content });
+  function idGen() {
+    return Math.floor(Math.random() * 10000).toString();
+  }
+
+  data.push({ name: name, content: content, id: idGen()});
 };
 
 function list() {
@@ -37,6 +41,8 @@ for (let i = 0; i < 10; i++) {
 // Test
 add('Jake Doe', 'Hello world!');
 add('Holly Molly', 'Can you believe it?');
+add('Holly Molly', 'I did it!');
+
 
 // console.log(data.length);
 // console.log(list());
