@@ -1,24 +1,26 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-  <div class="page-header">
-    <h1>Welcome to Twitter.js!</h1>
-  </div>
+  <header class="page-header">
+    <h1>TwitterJS</h1>
+  </header>
   <div class="row">
     <div class="col-md-3">
-      <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
-      <b>Your Name</b><br>
-      100 followers
+      <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/11049497_10153724213425839_8952733651272417395_n.jpg?oh=3063c0e6d229cfe650162b59bd821040&oe=59FD2BE3" width="150">
+      <h3>Burcu Noyan</h3>
+      <p><em>1,000 followers</em></p>
     </div>
-    <div class="col-md-9">
 
-      <!-- display tweets here -->
+    <!-- display tweets here -->
+    <ul class="list-group col-md-9 tweetbox">
       {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
+        <li class="list-group-item">
+          <img>
+          <h4 class="content"><a href="users/{{ tweet.name }}" target="_blank">{{ tweet.name }}</a></h4>
+          <p class="content"><a href="">{{ tweet.content }}</a></p>
+        </li>
       {% endfor %}
-
-    </div>
+    </ul>
   </div>
 
 {% endblock %}
