@@ -1,24 +1,23 @@
-const _ = require('lodash');
-
+const _ = require('lodash'); // utilities library
 var data = [];
 
-function add (name, content) {
+function add(name, content) {
   data.push({ name: name, content: content });
-}
+};
 
-function list () {
+function list() {
   return _.cloneDeep(data);
-}
+};
 
-function find (properties) {
+function find(properties) {
   return _.cloneDeep(_.filter(data, properties));
-}
+};
+
+module.exports = {add: add, list: list, find: find };
 
 const randArrayEl = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
-
-module.exports = { add: add, list: list, find: find };
 
 const getFakeName = function() {
   const fakeFirsts = ['Nimit', 'David', 'Shanna', 'Emily', 'Scott', 'Karen', 'Ben', 'Dan', 'Ashi', 'Kate', 'Omri', 'Gabriel', 'Joe', 'Geoff'];
@@ -28,13 +27,17 @@ const getFakeName = function() {
 
 const getFakeTweet = function() {
   const awesome_adj = ['awesome', 'breathtaking', 'amazing', 'funny', 'sweet', 'cool', 'wonderful', 'mindblowing', 'impressive'];
-  return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
+  return "This app is " + randArrayEl(awesome_adj) + "! Also " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
 for (let i = 0; i < 10; i++) {
-  module.exports.add( getFakeName(), getFakeTweet() );
+  module.exports.add(getFakeName(), getFakeTweet());
 }
 
-// add('fname lname', 'hello');
-// console.log(find({name: 'fname lname'}));
-// console.log(data);
+// Test
+add('Jake Doe', 'Hello world!');
+add('Holly Molly', 'Can you believe it?');
+
+// console.log(data.length);
+// console.log(list());
+// console.log('I found: ', find({'name': 'Holly Molly'}));
