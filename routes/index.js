@@ -19,4 +19,11 @@ router.get('/', function(req, res) {
   res.render('index', { tweets: tweets, showForm: true });
 });
 
+router.post('/tweets', function(req, res) {
+  var name = req.body.name;
+  var text = req.body.text;
+  tweetBank.add(name, text);
+  res.redirect('/');
+});
+
 module.exports = router;
