@@ -11,8 +11,20 @@
       <p><em>1,000 followers</em></p>
     </div>
 
+  <section class="col-md-9 tweetbox">
+    <!-- form for tweets -->
+      {% if showForm %}
+      <form action="/tweets" method="POST" class="well">
+        <label for="name_field">Name:</label>
+        <input name="name" type="text" id="name_field" />
+        <label for="text_field">Text:</label>
+        <input name="text" type="text" id="text_field" style="width: 350px;" />
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </form>
+      {% endif %}
+
     <!-- display tweets here -->
-    <ul class="list-group col-md-9 tweetbox">
+    <ul class="list-group">
       {% for tweet in tweets %}
         <li class="list-group-item">
           <img>
@@ -22,5 +34,6 @@
       {% endfor %}
     </ul>
   </div>
+  </section>
 
 {% endblock %}
