@@ -43,7 +43,6 @@ add('Jake Doe', 'Hello world!');
 add('Holly Molly', 'Can you believe it?');
 add('Holly Molly', 'I did it!');
 
-
-// console.log(data.length);
+// console.log(data);
 // console.log(list());
 // console.log('I found: ', find({'name': 'Holly Molly'}));

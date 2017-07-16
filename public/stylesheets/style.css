@@ -6,6 +6,7 @@ body {
 
 /* Wrapper for page content to push down footer */
 #wrap {
+  background-color: #e6ecf0;
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
@@ -24,6 +25,10 @@ body {
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
+
+h1 {
+  color: #00aced;
+}
 
 h4 {
   font-size: 16px;
@@ -60,4 +65,8 @@ code {
 }
 .content .by {
   font-weight: bold;
+}
+
+#tweet-text {
+  color: #000;
 }
