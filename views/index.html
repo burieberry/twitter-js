@@ -28,8 +28,8 @@
       {% for tweet in tweets %}
         <li class="list-group-item">
           <img>
-          <h4 class="content"><a href="users/{{ tweet.name }}" target="_blank">{{ tweet.name }}</a></h4>
-          <p class="content"><a href="tweets/{{ tweet.id }}" target="_blank"><span id="tweet-text">{{ tweet.content }}</span></a></p>
+          <h4 class="content"><a href="/users/{{ tweet.name }}">{{ tweet.name }}</a></h4>
+          <p class="content"><a href="/tweets/{{ tweet.id }}"><span id="tweet-text">{{ tweet.content }}</span></a></p>
         </li>
       {% endfor %}
     </ul>
