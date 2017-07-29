@@ -3,24 +3,28 @@ const express = require('express');
 const router = express.Router();
 const tweetBank = require('../tweetBank');
 
-router.get('/tweets/:id', function(req, res) {
-  var id = req.params.id;
-  var list = tweetBank.find({'id': id});
-  res.render('index', { tweets: list });
-});
-
-router.get('/users/:name', function(req, res) {
-  var name = req.params.name;
-  var list = tweetBank.find({'name': name});
-  res.render('index', { tweets: list, showForm: true});
-});
-
-router.get('/', function(req, res) {
+// function to get all tweets
+function allTweets(req, res, next) {
   let tweets = tweetBank.list();
-  res.render('index', { tweets: tweets, showForm: true });
+  res.render('index', { title: 'Twitter JS', tweets, showForm: true });
+}
+
+router.get('/', allTweets);
+router.get('/tweets', allTweets);
+
+router.get('/users/:name', function(req, res, next) {
+  var name = req.params.name;
+  var tweets = tweetBank.find({'name': name});
+  res.render('index', { tweets, username: name, showForm: true});
 });
 
-router.post('/tweets', function(req, res) {
+router.get('/tweets/:id', function(req, res, next) {
+  var id = req.params.id * 1;
+  var tweets = tweetBank.find({'id': id});
+  res.render('index', { tweets });
+});
+
+router.post('/tweets', function(req, res, next) {
   var name = req.body.name;
   var text = req.body.text;
   tweetBank.add(name, text);
